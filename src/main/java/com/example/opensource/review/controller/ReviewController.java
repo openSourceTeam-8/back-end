@@ -1,5 +1,6 @@
 package com.example.opensource.review.controller;
 
+import com.example.opensource.review.dto.MovieReviewPageDto;
 import com.example.opensource.review.dto.ReviewCreateRequestDto;
 import com.example.opensource.review.dto.ReviewCreateResponseDto;
 import com.example.opensource.review.service.ReviewService;
@@ -22,5 +23,13 @@ public class ReviewController {
                                                                 @RequestBody ReviewCreateRequestDto reviewCreateRequestDto) {
         ReviewCreateResponseDto reviewCreateResponseDto = reviewService.createReview(movieId, reviewCreateRequestDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(reviewCreateResponseDto);
+    }
+
+    // 리뷰 달고 싶은 영화 리뷰 페이지 접속하면 보이는 기본 화면
+    // 하나의 특정 영화에 달린 리뷰 확인하는 페이지
+    @GetMapping()
+    public ResponseEntity<MovieReviewPageDto> findMovieReviews(@PathVariable("movieId") Long movieId){
+        MovieReviewPageDto response = reviewService.findMovieReviews(movieId);
+        return ResponseEntity.ok(response);
     }
 }
