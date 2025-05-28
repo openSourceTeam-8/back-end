@@ -1,5 +1,6 @@
 package com.example.opensource.movie.domain;
 
+import com.example.opensource.movie.domain.constant.MovieRating;
 import com.example.opensource.review.domain.Review;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
