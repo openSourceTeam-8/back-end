@@ -1,5 +1,6 @@
-package com.example.opensource.movie.domain;
+package com.example.opensource.review.domain;
 
+import com.example.opensource.movie.domain.Movie;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
