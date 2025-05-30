@@ -25,13 +25,13 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-security'
+	//implementation 'org.springframework.boot:spring-boot-starter-security' // Spring Security의 기본 인증 설정으로 인한 401 오류 방지를 위해 주석 처리 (Postman 테스트 목적)
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.springframework.security:spring-security-test'
+	//testImplementation 'org.springframework.security:spring-security-test' // Spring Security의 기본 인증 설정으로 인한 401 오류 방지를 위해 주석 처리 (Postman 테스트 목적)
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
 	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0")
