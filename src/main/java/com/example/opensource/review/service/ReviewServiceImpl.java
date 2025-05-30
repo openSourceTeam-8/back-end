@@ -1,12 +1,13 @@
 package com.example.opensource.review.service;
 
+import com.example.opensource.movie.dao.MovieRepository;
 import com.example.opensource.movie.domain.Movie;
 import com.example.opensource.review.domain.Review;
 import com.example.opensource.review.dto.MovieReviewPageDto;
 import com.example.opensource.review.dto.ReviewCreateRequestDto;
 import com.example.opensource.review.dto.ReviewCreateResponseDto;
 import com.example.opensource.review.dto.ReviewDto;
-import com.example.opensource.review.repository.MovieRepository;
+
 import com.example.opensource.review.repository.ReviewRepository;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +18,7 @@ public class ReviewServiceImpl implements ReviewService {
     private final ReviewRepository reviewRepository;
     private final MovieRepository movieRepository;
 
-    public ReviewServiceImpl(ReviewRepository reviewRepository,MovieRepository movieRepository) {
+    public ReviewServiceImpl(ReviewRepository reviewRepository, MovieRepository movieRepository) {
         this.reviewRepository = reviewRepository;
         this.movieRepository = movieRepository;
     }
