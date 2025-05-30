@@ -9,4 +9,7 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
 
     List<Movie> findByGenre(String genre);
 
+    List<Movie> findByNation(String country);
+
+
 }
