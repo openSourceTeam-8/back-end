@@ -16,12 +16,14 @@ public class ReviewDto {
     private String nickname;
     private String reviewContents;
     private LocalDateTime createdAt;
+    private int score;  //영화 별점
 
     public static ReviewDto fromEntity(Review review) {
         return ReviewDto.builder()
                 .nickname(review.getNickname())
                 .reviewContents(review.getReviewContents())
                 .createdAt(review.getCreatedAt())
+                .score(review.getScore())
                 .build();
     }
 }

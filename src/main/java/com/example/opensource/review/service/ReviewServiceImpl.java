@@ -30,6 +30,7 @@ public class ReviewServiceImpl implements ReviewService {
                 .movie(movie)
                 .nickname(reviewCreateRequestDto.getNickname())
                 .reviewContents(reviewCreateRequestDto.getReviewContents())
+                .score(reviewCreateRequestDto.getScore())
                 .build();
         // 리뷰 객체 저장
         Review savedReview = reviewRepository.save(review);

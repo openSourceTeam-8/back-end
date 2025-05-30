@@ -29,6 +29,9 @@ public class Review {
     @Lob
     @Column(name = "review_contents", nullable = false)
     private String reviewContents;
+    //영화 별점 추가
+    @Column(nullable=false)
+    private int score;  //별점은 정수로, 평균은 실수(소수점 2번째 자리까지)
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "movie_id", nullable = false)
