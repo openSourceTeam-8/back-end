@@ -23,10 +23,19 @@ public class MovieReviewPageDto {
     private String director;    //감독
     private String movieRating; //등급(전체관람가,12세,..)
     private int reviewCount;    //리뷰 개수
+    private float avgScore; //평점 평균
     private List<String> thumbnails;    //썸네일(영화포스터)
     private List<ReviewDto> reviews;  //리뷰
 
     public static MovieReviewPageDto fromEntity(Movie movie, List<ReviewDto> reviewDtos) {
+        double averageScore = reviewDtos.stream()
+                .mapToInt(ReviewDto::getScore)
+                .average()
+                .orElse(0.0);
+
+        // 평균 점수를 소수점 둘째 자리까지 포맷
+        String formattedAvgScore = String.format("%.2f", averageScore);
+
         return MovieReviewPageDto.builder()
                 .title(movie.getTitle())
                 .releaseYear(movie.getReleaseYear())
@@ -37,6 +46,7 @@ public class MovieReviewPageDto {
                 .director(movie.getDirector())
                 .movieRating(movie.getMovieRating().name())
                 .reviewCount(reviewDtos.size())
+                .avgScore(Float.parseFloat(formattedAvgScore)) // 포맷된 문자열을 float로 변환
                 .thumbnails(
                         movie.getThumbnails().stream()
                                 .map(thumbnail -> thumbnail.getUrl())
