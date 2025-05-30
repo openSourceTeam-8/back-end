@@ -14,7 +14,11 @@ public class SpringDocSecurityConfig {
                         .requestMatchers(
                                 "/v3/api-docs/**",
                                 "/swagger-ui/**",
-                                "/swagger-ui.html"
+                                "/swagger-ui.html",
+                                "/api/movie/**", // 기존 패턴
+                                "/movie/**" // <<-- 이 라인을 추가해주세요.
+
+
                         ).permitAll()
                         .anyRequest().authenticated()
                 )

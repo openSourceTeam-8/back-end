@@ -41,7 +41,8 @@ public class Movie {
     @Column(length = 20)
     private String director;
 
-    @Enumerated(EnumType.STRING)
+    //@Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.ORDINAL)
     @Column(name = "movie_rating", nullable = false)
     private MovieRating movieRating;
 
