@@ -10,14 +10,14 @@ public class SpringDocSecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
+                .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
                                 "/v3/api-docs/**",
                                 "/swagger-ui/**",
                                 "/swagger-ui.html",
-                                "/api/movie/**", // 기존 패턴
-                                "/movie/**" // <<-- 이 라인을 추가해주세요.
-
+                                "/movie/**",
+                                "/api/v1/review/**"
 
                         ).permitAll()
                         .anyRequest().authenticated()

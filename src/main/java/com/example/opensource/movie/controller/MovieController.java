@@ -38,7 +38,7 @@ public class MovieController {
         return ResponseEntity.ok(movieService.getTop10ReviewedMovies());
     }
 
-    @Operation(summary = "최근 개봉한 영화 조회")
+    @Operation(summary = "최근에 개봉한 순서로 조회")
     @GetMapping("/latest")
     public ResponseEntity<List<MovieReviewPageDto>> getLatestReleasedMovies() {
         return ResponseEntity.ok(movieService.getLatestReleasedMovies());
